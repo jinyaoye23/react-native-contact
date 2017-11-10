@@ -8,7 +8,7 @@
 
 #import "RNContact.h"
 
-#import "Contact.h"
+#import "RCTContact.h"
 
 #import "RCTBridgeModule.h"
 #import "RCTBundleURLProvider.h"
