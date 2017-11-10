@@ -102,7 +102,7 @@ RCT_EXPORT_METHOD(checkContactPermissions:(RCTResponseSenderBlock)callback){
 #pragma mark - ABPeoplePickerNavigationControllerDelegate
 - (void)peoplePickerNavigationControllerDidCancel:(ABPeoplePickerNavigationController *)picker
 {
-    _responseCallBack(@[@{@"code":"10002",@"msg":@"用户主动取消"}]);
+    _responseCallBack(@[@{@"code":@"10002",@"msg":@"用户主动取消"}]);
     [_peoplePicker dismissViewControllerAnimated:YES completion:NULL];
 }
 
@@ -138,7 +138,7 @@ RCT_EXPORT_METHOD(checkContactPermissions:(RCTResponseSenderBlock)callback){
     NSArray * fields = [NSArray arrayWithObjects:@"*", nil];
 //    NSArray * fields = ;
     NSDictionary * returnFields = [[RCTContact class] calcReturnFields:fields];
-    NSDictionary *result = @{@"code":"10000",@"data":[pickedContact toDictionary:returnFields]};
+    NSDictionary *result = @{@"code":@"10000",@"data":[pickedContact toDictionary:returnFields]};
     
 //    [peoplePicker presentationController] dismissViewControllerAnimated
     [peoplePicker dismissViewControllerAnimated:YES completion:^{
