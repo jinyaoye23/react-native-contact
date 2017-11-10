@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9602843F1FB19FAF0025177E /* RCTContact.m in Sources */ = {isa = PBXBuildFile; fileRef = 9602843E1FB19FAF0025177E /* RCTContact.m */; };
+		961DBBDB1FB58A9700473423 /* Contact.m in Sources */ = {isa = PBXBuildFile; fileRef = 961DBBD91FB58A9700473423 /* Contact.m */; };
 		969659E31FB19098007FD34D /* RNContact.m in Sources */ = {isa = PBXBuildFile; fileRef = 969659E21FB19098007FD34D /* RNContact.m */; };
 		969659E41FB19098007FD34D /* RNContact.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 969659E11FB19098007FD34D /* RNContact.h */; };
 /* End PBXBuildFile section */
@@ -26,8 +26,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		9602843D1FB19FAF0025177E /* RCTContact.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RCTContact.h; sourceTree = "<group>"; };
-		9602843E1FB19FAF0025177E /* RCTContact.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RCTContact.m; sourceTree = "<group>"; };
+		961DBBD91FB58A9700473423 /* Contact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Contact.m; sourceTree = "<group>"; };
+		961DBBDA1FB58A9700473423 /* Contact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Contact.h; sourceTree = "<group>"; };
 		969659DE1FB19098007FD34D /* libRNContact.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRNContact.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		969659E11FB19098007FD34D /* RNContact.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNContact.h; sourceTree = "<group>"; };
 		969659E21FB19098007FD34D /* RNContact.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNContact.m; sourceTree = "<group>"; };
@@ -63,10 +63,10 @@
 		969659E01FB19098007FD34D /* RNContact */ = {
 			isa = PBXGroup;
 			children = (
+				961DBBDA1FB58A9700473423 /* Contact.h */,
+				961DBBD91FB58A9700473423 /* Contact.m */,
 				969659E11FB19098007FD34D /* RNContact.h */,
 				969659E21FB19098007FD34D /* RNContact.m */,
-				9602843D1FB19FAF0025177E /* RCTContact.h */,
-				9602843E1FB19FAF0025177E /* RCTContact.m */,
 			);
 			path = RNContact;
 			sourceTree = "<group>";
@@ -128,7 +128,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9602843F1FB19FAF0025177E /* RCTContact.m in Sources */,
+				961DBBDB1FB58A9700473423 /* Contact.m in Sources */,
 				969659E31FB19098007FD34D /* RNContact.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

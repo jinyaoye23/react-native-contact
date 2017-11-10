@@ -21,7 +21,7 @@
 #import <AddressBook/ABAddressBook.h>
 #import <AddressBookUI/AddressBookUI.h>
 
-enum CDVContactError {
+enum RCTContactError {
     UNKNOWN_ERROR = 0,
     INVALID_ARGUMENT_ERROR = 1,
     TIMEOUT_ERROR = 2,
@@ -31,9 +31,9 @@ enum CDVContactError {
     OPERATION_CANCELLED_ERROR = 6,
     PERMISSION_DENIED_ERROR = 20
 };
-typedef NSUInteger CDVContactError;
+typedef NSUInteger RCTContactError;
 
-@interface Contact : NSObject {
+@interface RCTContact : NSObject {
     ABRecordRef record;         // the ABRecord associated with this contact
     NSDictionary* returnFields; // dictionary of fields to return when performing search
 }
@@ -53,6 +53,8 @@ typedef NSUInteger CDVContactError;
 - (bool)setFromContactDict:(NSDictionary*)aContact asUpdate:(BOOL)bUpdate;
 
 + (BOOL)needsConversion:(NSString*)W3Label;
++ (NSDictionary *) getContactLabels;
++ (NSArray *) filterLabels: (NSString *) contactApiLabel;
 + (CFStringRef)convertContactTypeToPropertyLabel:(NSString*)label;
 + (NSString*)convertPropertyLabelToContactType:(NSString*)label;
 + (BOOL)isValidW3ContactType:(NSString*)label;
@@ -91,15 +93,24 @@ typedef NSUInteger CDVContactError;
 #define kW3ContactWorkLabel @"work"
 #define kW3ContactHomeLabel @"home"
 #define kW3ContactOtherLabel @"other"
-#define kW3ContactPhoneFaxLabel @"fax"
+#define kW3ContactPhoneWorkFaxLabel @"work fax"
+#define kW3ContactPhoneHomeFaxLabel @"home fax"
 #define kW3ContactPhoneMobileLabel @"mobile"
 #define kW3ContactPhonePagerLabel @"pager"
+#define kW3ContactPhoneIPhoneLabel @"iphone"
+#define kW3ContactPhoneMainLabel @"main"
 #define kW3ContactUrlBlog @"blog"
 #define kW3ContactUrlProfile @"profile"
 #define kW3ContactImAIMLabel @"aim"
 #define kW3ContactImICQLabel @"icq"
 #define kW3ContactImMSNLabel @"msn"
 #define kW3ContactImYahooLabel @"yahoo"
+#define kW3ContactImSkypeLabel @"skype"
+#define kW3ContactImFacebookMessengerLabel @"facebook"
+#define kW3ContactImGoogleTalkLabel @"gtalk"
+#define kW3ContactImJabberLabel @"jabber"
+#define kW3ContactImQQLabel @"qq"
+#define kW3ContactImGaduLabel @"gadu"
 #define kW3ContactFieldId @"id"
 // special translation for IM field value and type
 #define kW3ContactImType @"type"
@@ -135,4 +146,3 @@ typedef NSUInteger CDVContactError;
 #define kW3ContactPhotos @"photos"
 #define kW3ContactCategories @"categories"
 #define kW3ContactUrls @"urls"
-

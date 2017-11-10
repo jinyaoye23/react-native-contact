@@ -14,8 +14,11 @@ function pickContact() {
             NativeModules.RNContact.openContactPicker(result => {
 
                 if (result.code == ContactPickerStatus.SUCCESS) {
-                    result.name = result.name.formatted;
-                    resolve(result);
+                    console.log(result);
+                    let data = result.data;
+                    let name = data.name.formatted;
+                    data.name = name;
+                    resolve(data);
                 } else {
                     reject({
                         code: result.code,
