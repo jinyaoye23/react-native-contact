@@ -22,6 +22,7 @@ function pickContact() {
                 } else {
                     reject({
                         code: result.code,
+                        message: result.msg,
                     });
                 }
             })

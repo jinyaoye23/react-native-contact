@@ -77,10 +77,10 @@ RCT_EXPORT_METHOD(checkContactPermissions:(RCTResponseSenderBlock)callback){
         ABAddressBookRequestAccessWithCompletion(addressBook, ^(bool granted, CFErrorRef error) {
             NSLog(@"granted==%d",granted);
             if (granted) {
-                NSDictionary* result  = @{@"status":[NSNumber numberWithBool:true]};
+                NSDictionary* result  = @{@"code":[NSNumber numberWithBool:true]};
                 _responseCallBack(@[result]);
             } else {
-                NSDictionary* result  = @{@"status":[NSNumber numberWithBool:false]};
+                NSDictionary* result  = @{@"code":[NSNumber numberWithBool:false]};
                 _responseCallBack(@[result]);
             }
         });
