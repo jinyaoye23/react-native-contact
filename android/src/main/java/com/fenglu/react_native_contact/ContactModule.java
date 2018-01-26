@@ -119,28 +119,31 @@ public class ContactModule extends ReactContextBaseJavaModule implements Activit
     @Override
     public void onActivityResult(Activity activity, int requestCode, int resultCode, Intent data) {
 
-        if (resultCode == Activity.RESULT_OK) {
-            String contactId = data.getData().getLastPathSegment();
+        if (requestCode == CONTACT_PICKER_RESULT) {
+            if (resultCode == Activity.RESULT_OK) {
+                String contactId = data.getData().getLastPathSegment();
 
-            Cursor c = getCurrentActivity().getContentResolver().query(ContactsContract.RawContacts.CONTENT_URI,
-                    new String[] {ContactsContract.RawContacts._ID}, ContactsContract.RawContacts.CONTACT_ID + "=" + contactId, null, null);
-            if (!c.moveToFirst()) {
-                return;
+                Cursor c = getCurrentActivity().getContentResolver().query(ContactsContract.RawContacts.CONTENT_URI,
+                        new String[] {ContactsContract.RawContacts._ID}, ContactsContract.RawContacts.CONTACT_ID + "=" + contactId, null, null);
+                if (!c.moveToFirst()) {
+                    return;
+                }
+                String id = c.getString(c.getColumnIndex(ContactsContract.RawContacts._ID));
+                c.close();
+
+                try {
+
+                    JSONObject contact = contactAccessor.getContactById(id);
+
+                    pickerPromise.resolve(JsonConvertUtil.jsonToReact(contact));
+                } catch (JSONException e) {
+                    Log.e(LOG_TAG, "JSONException", e);
+                }
+            } else if (resultCode == Activity.RESULT_CANCELED) {
+                pickerPromise.reject(USER_CANCELED, "用户取消了选择联系人");
             }
-            String id = c.getString(c.getColumnIndex(ContactsContract.RawContacts._ID));
-            c.close();
-
-            try {
-
-                JSONObject contact = contactAccessor.getContactById(id);
-
-                pickerPromise.resolve(JsonConvertUtil.jsonToReact(contact));
-            } catch (JSONException e) {
-                Log.e(LOG_TAG, "JSONException", e);
-            }
-        } else if (resultCode == Activity.RESULT_CANCELED) {
-            pickerPromise.reject(USER_CANCELED, "用户取消了选择联系人");
         }
+
     }
 
     @Override
