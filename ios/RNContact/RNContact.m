@@ -45,14 +45,14 @@ RCT_EXPORT_METHOD(openContactPicker:(RCTResponseSenderBlock)callback){
                [self showContactPicker];
             } else {
                 // 无权限
-                NSDictionary* result  = @{@"status":@"10001", @"msg": @"无访问通讯录的权限"};
+                NSDictionary* result  = @{@"code":@"10001", @"msg": @"无访问通讯录的权限"};
                 _responseCallBack(@[result]);
             }
             
         });
     } else if (status == kABAuthorizationStatusRestricted || status == kABAuthorizationStatusDenied) {
         // 无权限
-        NSDictionary* result  = @{@"status":@"10001", @"msg": @"无访问通讯录的权限"};
+        NSDictionary* result  = @{@"code":@"10001", @"msg": @"无访问通讯录的权限"};
         _responseCallBack(@[result]);
     }
     
